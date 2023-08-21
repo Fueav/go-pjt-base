@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	logger "github.com/ipfs/go-log"
 	"net/http"
+	"runtime/debug"
 )
 
 var log = logger.Logger("middleware")
@@ -25,7 +26,7 @@ func Cors() gin.HandlerFunc {
 		}
 		defer func() {
 			if err := recover(); err != nil {
-				log.Errorf("Panic info is: %v", err)
+				log.Errorf("Panic info is: %s", string(debug.Stack()))
 			}
 		}()
 
