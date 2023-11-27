@@ -6,6 +6,7 @@ import (
 	"go-pjt-base/apps/app/internal/server"
 	"go-pjt-base/pkg/commands"
 	"go-pjt-base/pkg/common/xmysql"
+	"go-pjt-base/pkg/common/xpostgres"
 	"go-pjt-base/pkg/common/xredis"
 )
 
@@ -13,6 +14,7 @@ func init() {
 	conf := config.GetConfig()
 	xmysql.NewMysqlClient(conf.Mysql)
 	xredis.NewRedisClient(conf.Redis)
+	xpostgres.NewPostgresClient(conf.Postgres)
 }
 
 func main() {

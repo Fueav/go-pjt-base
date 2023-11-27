@@ -14,10 +14,11 @@ import (
 var log = logger.Logger("config")
 
 type Config struct {
-	Port  int        `yaml:"port"`
-	Redis conf.Redis `yaml:"redis"`
-	Mysql conf.Mysql `yaml:"mysql"`
-	Oss   conf.Oss   `yaml:"oss"`
+	Port     int           `yaml:"port"`
+	Redis    conf.Redis    `yaml:"redis"`
+	Mysql    conf.Mysql    `yaml:"mysql"`
+	Oss      conf.Oss      `yaml:"oss"`
+	Postgres conf.Postgres `yaml:"postgres"`
 }
 
 var (
