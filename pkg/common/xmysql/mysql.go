@@ -66,11 +66,12 @@ func ConnectDB(cfg conf.Mysql) (db *gorm.DB, err error) {
 		opts  *gorm.Config
 		sqlDB *sql.DB
 	)
-	args = fmt.Sprintf("%s:%s@(%s)/%s?charset=utf8&parseTime=true&loc=Local",
+	args = fmt.Sprintf("%s:%s@(%s)/%s?charset=%s&parseTime=true&loc=Local",
 		cfg.Username,
 		cfg.Password,
 		cfg.Address,
-		cfg.Db)
+		cfg.Db,
+		cfg.Charset)
 
 	opts = &gorm.Config{
 		SkipDefaultTransaction: false,
